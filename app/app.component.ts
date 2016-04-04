@@ -3,6 +3,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 import { HeroService } from './hero.service';
 import { HeroesComponent } from './heroes.component';
 import { DashboardComponent } from './dashboard.component';
+import { HeroDetailComponent } from '.hero-detail.component';
 
 @RouteConfig([ //Only 3 route definitions as of now
     {
@@ -15,6 +16,11 @@ import { DashboardComponent } from './dashboard.component';
         name: 'Dashboard',
         component: DashboardComponent,
         useAsDefault: true //dislays this URL when the browser doesn't match an exsiting route
+    },
+    {
+        path: '/detail/:id',
+        name: 'HeroDetail',
+        component: HeroDetailComponent
     }
 ])
 
