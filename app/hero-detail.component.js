@@ -22,11 +22,16 @@ System.register(['angular2/core', "./hero"], function(exports_1, context_1) {
             }],
         execute: function() {
             //The HeroDetail Component must be told what hero to display. Who will tell it? The parent AppComponent
-            hero: hero_1.Hero;
             HeroDetailComponent = (function () {
                 function HeroDetailComponent() {
                 }
+                __decorate([
+                    //export the class to make it available to other components
+                    core_1.Input(), 
+                    __metadata('design:type', hero_1.Hero)
+                ], HeroDetailComponent.prototype, "hero", void 0);
                 HeroDetailComponent = __decorate([
+                    //the hero property is an input.
                     core_1.Component({
                         selector: 'my-hero-detail',
                         template: "\n    <div *ngIf=\"hero\">\n        <h2>{{hero.name}} details!</h2>\n        <div><label>id: </label>{{hero.id}}</div>\n        <div>\n            <label>name: </label>\n            <input [(ngModel)]=\"hero.name\" placeholder=\"name\">\n        </div>\n    </div>\n    "

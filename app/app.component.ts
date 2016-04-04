@@ -13,8 +13,12 @@ import {HeroDetailComponent} from './hero-detail.component';
             <span class="badge">{{hero.id}}</span> {{hero.name}}
         </li>
     </ul>
-    <my-hero-detail></my-hero-detail>
-    `,
+    <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+    `, //The two components won't coordinate until we bind the selectedHero property of the AppComponent to the HeroDetailComponent element's 
+       //hero property
+       //The [hero] property is the 'target' of a property binding. Angular insists that we declare a 'target' property to be an 'input'
+       //property. Because of this binding, the HeroDetailComponent should receive the [hero] from the App Component and display that hero's
+       //detail beneath the list. The detail should update every time the user picks a new hero.
     styles:[`
   .selected {
     background-color: #CFD8DC !important;
@@ -63,15 +67,12 @@ import {HeroDetailComponent} from './hero-detail.component';
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
-`]
+`],
+directives: [HeroDetailComponent] //Browser & Angular ignores the html tag unless we specify it here. 
 })
 export class AppComponent { 
     title = "Tour of Heroes";
     selectedHero: Hero;
-    // hero: Hero = {
-    //     id: 1,
-    //     name: 'Windstorm'
-    // };
     onSelect(hero: Hero) { this.selectedHero = hero };
     public heroes = HEROES;
 }
