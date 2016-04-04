@@ -41,7 +41,7 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './heroes
                     ]),
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <h1>{{title}}</h1>\n        <my-heroes></my-heroes>\n    ",
+                        template: "\n        <h1>{{title}}</h1>\n        <a [routerLink]=\"['Heroes']\">Heroes</a>\n        <router-outlet></router-outlet>\n    ",
                         directives: [
                             router_1.ROUTER_DIRECTIVES,
                         ],
