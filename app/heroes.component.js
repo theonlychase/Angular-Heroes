@@ -50,13 +50,13 @@ System.register(['angular2/core', 'angular2/router', './hero-detail.component', 
                 HeroesComponent = __decorate([
                     core_1.Component({
                         selector: 'my-heroes',
-                        template: 'app/heroes.component.html',
+                        templateUrl: 'app/heroes.component.html',
                         //The two components won't coordinate until we bind the selectedHero property of the AppComponent to the HeroDetailComponent element's 
                         //hero property
                         //The [hero] property is the 'target' of a property binding. Angular insists that we declare a 'target' property to be an 'input'
                         //property. Because of this binding, the HeroDetailComponent should receive the [hero] from the App Component and display that hero's
                         //detail beneath the list. The detail should update every time the user picks a new hero.
-                        styleUrls: ['app.heroes.component.css'],
+                        styleUrls: ['app/heroes.component.css'],
                         directives: [hero_detail_component_1.HeroDetailComponent] //Browser & Angular ignores the html tag unless we specify it here. 
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService])
