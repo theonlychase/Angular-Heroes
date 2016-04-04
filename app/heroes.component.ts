@@ -13,7 +13,6 @@ import {HeroService} from './hero.service';
             <span class="badge">{{hero.id}}</span> {{hero.name}}
         </li>
     </ul>
-    <my-hero-detail [hero]="selectedHero"></my-hero-detail>
     `, //The two components won't coordinate until we bind the selectedHero property of the AppComponent to the HeroDetailComponent element's 
        //hero property
        //The [hero] property is the 'target' of a property binding. Angular insists that we declare a 'target' property to be an 'input'
