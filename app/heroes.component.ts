@@ -4,7 +4,7 @@ import {HeroDetailComponent} from './hero-detail.component';
 import {HeroService} from './hero.service';
 
 @Component({
-    selector: 'my-app',
+    selector: 'my-heroes',
     template: `
     <h1>{{title}}</h1>
     <h2>My Heroes</h2>
@@ -72,7 +72,7 @@ directives: [HeroDetailComponent], //Browser & Angular ignores the html tag unle
 providers: [HeroService] //Angular Dependency Injector - Here, we teach the injector how to make a HeroService by registering a HeroService provider. 
 //the providers array tells angular to create a fresh instance of the HeroService when it creates a new AppComponent. 
 })
-export class AppComponent implements OnInit { //Component Lifecycle - At creation, After each change, eventual destruction. Angular calls it at the right time. 
+export class HeroesComponent implements OnInit { //Component Lifecycle - At creation, After each change, eventual destruction. Angular calls it at the right time. 
     title = "Tour of Heroes";
     heroes: Hero[];
     selectedHero: Hero;
