@@ -27,6 +27,10 @@ System.register(['angular2/core', './mock-heroes'], function(exports_1, context_
                 HeroService.prototype.getHeroes = function () {
                     return Promise.resolve(mock_heroes_1.HEROES); //we are still mocking the data. We're simulating the behavior of an ultra-fast, zero-latency server, by returning an immediately resolved promise with our mock heroes as the result
                 };
+                HeroService.prototype.getHero = function (id) {
+                    return Promise.resolve(mock_heroes_1.HEROES)
+                        .then(function (heroes) { return heroes.filter(function (hero) { return hero.id === id; })[0]; });
+                };
                 HeroService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
