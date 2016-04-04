@@ -69,7 +69,7 @@ import {HeroService} from './hero.service';
   }
 `],
 directives: [HeroDetailComponent] //Browser & Angular ignores the html tag unless we specify it here. 
-// providers: [HeroService] //Angular Dependency Injector - Here, we teach the injector how to make a HeroService by registering a HeroService provider. 
+// providers: [] //Angular Dependency Injector - Here, we teach the injector how to make a HeroService by registering a HeroService provider. 
 //the providers array tells angular to create a fresh instance of the HeroService when it creates a new AppComponent. 
 })
 export class HeroesComponent implements OnInit { //Component Lifecycle - At creation, After each change, eventual destruction. Angular calls it at the right time. 
