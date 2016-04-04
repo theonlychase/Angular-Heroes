@@ -24,7 +24,9 @@ export class HeroesComponent implements OnInit { //Component Lifecycle - At crea
     
     onSelect(hero: Hero) { this.selectedHero = hero };
     
-    constructor(private _heroService: HeroService) {} //the constructor itself does nothing. The parameter simultaneously defines a private _herpservice property and defines it as a heroService
+    constructor(
+        private _router: Router,
+        private _heroService: HeroService) {} //the constructor itself does nothing. The parameter simultaneously defines a private _herpservice property and defines it as a heroService
                                                       //injection site. (Prefix private variables with an underscore(_) to warn readers of our code that this variable is not part of the components API)
                                                       //Now Angular will know to supply an instance of the HeroService when it creates a new AppConponent
     getHeroes() {
