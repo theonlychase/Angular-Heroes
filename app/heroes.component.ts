@@ -35,5 +35,9 @@ export class HeroesComponent implements OnInit { //Component Lifecycle - At crea
     
     ngOnInit() {
         this.getHeroes();
-    }                                                  
+    }         
+    
+    gotoDetail() {
+        this._router.navigate(['HeroDetail', {id: this.selectedHero.id}]); 
+    }                                         
 }

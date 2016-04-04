@@ -44,6 +44,9 @@ System.register(['angular2/core', 'angular2/router', './hero-detail.component', 
                 HeroesComponent.prototype.ngOnInit = function () {
                     this.getHeroes();
                 };
+                HeroesComponent.prototype.gotoDetail = function () {
+                    this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
+                };
                 HeroesComponent = __decorate([
                     core_1.Component({
                         selector: 'my-heroes',
