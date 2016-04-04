@@ -14,6 +14,7 @@ import { HeroService } from './hero.service';
             <label>name: </label>
             <input [(ngModel)]="hero.name" placeholder="name">
         </div>
+        <button (click)="goBack()">back</button>
     </div>
     `
 })
@@ -31,6 +32,10 @@ export class HeroDetailComponent implements OnInit { //export the class to make 
         let id = +this._routeParams.get('id'); //We extract the 'id' by calling the RouteParams.get method.
         this._heroService.getHero(id) //The hero id is a number. Route Parameters are always strings. We convert the route parameter value to a number with the JS (+) operator. 
             .then(hero => this.hero = hero);
+    }
+    
+    goBack() { //This is acceptable for the demo. Going back too far could take us out of the application. 
+        window.history.back(); 
     }
         
 }
