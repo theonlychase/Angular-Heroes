@@ -17,9 +17,22 @@ import { HeroService } from './hero.service';
     </div>
     `
 })
-export class HeroDetailComponent { //export the class to make it available to other components
+export class HeroDetailComponent implements OnInit { //export the class to make it available to other components
     @Input()
     hero: Hero;
+    
+    constructor( //inject RouteParams and HeroService into the constructor as private variables
+        private _heroService: HeroService,
+        private _routeParams: RouteParams) {
+            
+    }
+    
+    ngOnInit() {
+        let id = +this._routeParams.get('id'); //We extract the 'id' by calling the RouteParams.get method.
+        this._heroService.getHero(id) //The hero id is a number. Route Parameters are always strings. We convert the route parameter value to a number with the JS (+) operator. 
+            .then(hero => this.hero = hero);
+    }
+        
 }
 
 //Since adding parameters, the way we get there hero now will change. We will no longer receive the hero in a parent component property binding. The new HeroDetailComponent should take
