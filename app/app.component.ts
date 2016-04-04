@@ -69,11 +69,19 @@ import {HeroService} from './hero.service';
     border-radius: 4px 0 0 4px;
   }
 `],
-directives: [HeroDetailComponent] //Browser & Angular ignores the html tag unless we specify it here. 
+directives: [HeroDetailComponent], //Browser & Angular ignores the html tag unless we specify it here. 
+providers: [HeroService] //Angular Dependency Injector - Here, we teach the injector how to make a HeroService by registering a HeroService provider. 
+//the providers array tells angular to create a fresh instance of the HeroService when it creates a new AppComponent. 
 })
 export class AppComponent { 
     title = "Tour of Heroes";
     selectedHero: Hero;
     onSelect(hero: Hero) { this.selectedHero = hero };
     heroes = Hero[];
+    constructor(private _heroService: HeroService) {} //the constructor itself does nothing. The parameter simultaneously defines a private _herpservice property and defines it as a heroService
+                                                      //injection site. (Prefix private variables with an underscore(_) to warn readers of our code that this variable is not part of the components API)
+                                                      //Now Angular will know to supply an instance of the HeroService when it creates a new AppConponent
+    getHeroes() {
+        this.heroes = this._heroService.getHeroes();
+    }                                                  
 }
