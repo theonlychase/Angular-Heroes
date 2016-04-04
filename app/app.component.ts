@@ -74,5 +74,5 @@ export class AppComponent {
     title = "Tour of Heroes";
     selectedHero: Hero;
     onSelect(hero: Hero) { this.selectedHero = hero };
-    public heroes = HEROES;
+    heroes = Hero[];
 }

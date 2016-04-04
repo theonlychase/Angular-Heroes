@@ -1,4 +1,4 @@
-System.register(['angular2/core', './hero-detail.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './hero', './hero-detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core', './hero-detail.component'], function(exports_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hero_detail_component_1;
+    var core_1, hero_1, hero_detail_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (hero_1_1) {
+                hero_1 = hero_1_1;
             },
             function (hero_detail_component_1_1) {
                 hero_detail_component_1 = hero_detail_component_1_1;
@@ -24,7 +27,7 @@ System.register(['angular2/core', './hero-detail.component'], function(exports_1
             AppComponent = (function () {
                 function AppComponent() {
                     this.title = "Tour of Heroes";
-                    this.heroes = HEROES;
+                    this.heroes = hero_1.Hero[];
                 }
                 AppComponent.prototype.onSelect = function (hero) { this.selectedHero = hero; };
                 ;
