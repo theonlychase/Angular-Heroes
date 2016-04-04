@@ -1,8 +1,7 @@
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {Hero} from './hero';
 import {HeroDetailComponent} from './hero-detail.component';
 import {HeroService} from './hero.service';
-
 
 @Component({
     selector: 'my-app',
@@ -73,15 +72,21 @@ directives: [HeroDetailComponent], //Browser & Angular ignores the html tag unle
 providers: [HeroService] //Angular Dependency Injector - Here, we teach the injector how to make a HeroService by registering a HeroService provider. 
 //the providers array tells angular to create a fresh instance of the HeroService when it creates a new AppComponent. 
 })
-export class AppComponent { 
+export class AppComponent implements OnInit { //Component Lifecycle - At creation, After each change, eventual destruction. Angular calls it at the right time. 
     title = "Tour of Heroes";
+    heroes: Hero[];
     selectedHero: Hero;
+    
     onSelect(hero: Hero) { this.selectedHero = hero };
-    heroes = Hero[];
+    
     constructor(private _heroService: HeroService) {} //the constructor itself does nothing. The parameter simultaneously defines a private _herpservice property and defines it as a heroService
                                                       //injection site. (Prefix private variables with an underscore(_) to warn readers of our code that this variable is not part of the components API)
                                                       //Now Angular will know to supply an instance of the HeroService when it creates a new AppConponent
     getHeroes() {
         this.heroes = this._heroService.getHeroes();
+    }
+    
+    ngOnInit() {
+        this.getHeroes();
     }                                                  
 }
