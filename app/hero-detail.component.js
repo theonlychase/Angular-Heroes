@@ -21,7 +21,6 @@ System.register(['angular2/core', "./hero"], function(exports_1, context_1) {
                 hero_1 = hero_1_1;
             }],
         execute: function() {
-            //The HeroDetail Component must be told what hero to display. Who will tell it? The parent AppComponent
             HeroDetailComponent = (function () {
                 function HeroDetailComponent() {
                 }
@@ -31,7 +30,6 @@ System.register(['angular2/core', "./hero"], function(exports_1, context_1) {
                     __metadata('design:type', hero_1.Hero)
                 ], HeroDetailComponent.prototype, "hero", void 0);
                 HeroDetailComponent = __decorate([
-                    //the hero property is an input.
                     core_1.Component({
                         selector: 'my-hero-detail',
                         template: "\n    <div *ngIf=\"hero\">\n        <h2>{{hero.name}} details!</h2>\n        <div><label>id: </label>{{hero.id}}</div>\n        <div>\n            <label>name: </label>\n            <input [(ngModel)]=\"hero.name\" placeholder=\"name\">\n        </div>\n    </div>\n    "
@@ -44,4 +42,6 @@ System.register(['angular2/core', "./hero"], function(exports_1, context_1) {
         }
     }
 });
+//Since adding parameters, the way we get there hero now will change. We will no longer receive the hero in a parent component property binding. The new HeroDetailComponent should take
+//the id parameter from the routers 'RouteParams' service and use the HeroService to fetch the hero with that id from storage. 
 //# sourceMappingURL=hero-detail.component.js.map
