@@ -34,7 +34,8 @@ System.register(['angular2/core', './hero-detail.component', './hero.service'], 
                 //injection site. (Prefix private variables with an underscore(_) to warn readers of our code that this variable is not part of the components API)
                 //Now Angular will know to supply an instance of the HeroService when it creates a new AppConponent
                 AppComponent.prototype.getHeroes = function () {
-                    this.heroes = this._heroService.getHeroes();
+                    var _this = this;
+                    this._heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; }); //Acting on the promise. When the promise resolves successfully, we will have the list of heroes.
                 };
                 AppComponent.prototype.ngOnInit = function () {
                     this.getHeroes();

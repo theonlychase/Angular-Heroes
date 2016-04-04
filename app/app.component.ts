@@ -83,7 +83,7 @@ export class AppComponent implements OnInit { //Component Lifecycle - At creatio
                                                       //injection site. (Prefix private variables with an underscore(_) to warn readers of our code that this variable is not part of the components API)
                                                       //Now Angular will know to supply an instance of the HeroService when it creates a new AppConponent
     getHeroes() {
-        this.heroes = this._heroService.getHeroes();
+        this._heroService.getHeroes().then(heroes => this.heroes = heroes); //Acting on the promise. When the promise resolves successfully, we will have the list of heroes.
     }
     
     ngOnInit() {
