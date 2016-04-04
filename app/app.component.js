@@ -41,14 +41,16 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './heroes
                             name: 'Heroes',
                             component: heroes_component_1.HeroesComponent //component that the router should create when navigating to this route
                         },
-                        path, '/dashboard',
-                        name, 'Dashboard',
-                        component, dashboard_component_1.DashboardComponent,
-                        useAsDefault, true //dislays this URL when the browser doesn't match an exsiting route
+                        {
+                            path: '/dashboard',
+                            name: 'Dashboard',
+                            component: dashboard_component_1.DashboardComponent,
+                            useAsDefault: true //dislays this URL when the browser doesn't match an exsiting route
+                        }
                     ]),
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <h1>{{title}}</h1>\n        <a [routerLink]=\"['Heroes']\">Heroes</a>\n        <router-outlet></router-outlet>\n    ",
+                        template: "\n        <h1>{{title}}</h1>\n        <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n        <a [routerLink]=\"['Heroes']\">Heroes</a>\n        <router-outlet></router-outlet>\n    ",
                         directives: [
                             router_1.ROUTER_DIRECTIVES,
                         ],

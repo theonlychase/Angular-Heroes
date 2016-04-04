@@ -10,16 +10,19 @@ import { DashboardComponent } from './dashboard.component';
         name: 'Heroes', //Official name of the route. Must begin with capital letter to avoid confusion with path name
         component: HeroesComponent //component that the router should create when navigating to this route
     },
+    {
         path: '/dashboard',
         name: 'Dashboard',
         component: DashboardComponent,
         useAsDefault: true //dislays this URL when the browser doesn't match an exsiting route
+    }
 ])
 
 @Component({
     selector: 'my-app',
     template:`
         <h1>{{title}}</h1>
+        <a [routerLink]="['Dashboard']">Dashboard</a>
         <a [routerLink]="['Heroes']">Heroes</a>
         <router-outlet></router-outlet>
     `,
