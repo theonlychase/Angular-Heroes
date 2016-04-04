@@ -31,7 +31,10 @@ System.register(['angular2/core', './hero.service'], function(exports_1, context
                     this._heroService.getHeroes()
                         .then(function (heroes) { return _this.heroes = heroes.slice(1, 5); });
                 };
-                DashboardComponent.prototype.gotoDetail = function () { };
+                DashboardComponent.prototype.gotoDetail = function (hero) {
+                    var link = ['HeroDetail', { id: hero.id }]; //Set a route 'link' parameters array
+                    this._router.navigate(link); //pass the array to the router's navigate method
+                };
                 DashboardComponent = __decorate([
                     core_1.Component({
                         selector: 'my-dashboard',
