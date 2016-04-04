@@ -43,7 +43,7 @@ System.register(['angular2/core', './hero-detail.component', './hero.service'], 
                 HeroesComponent = __decorate([
                     core_1.Component({
                         selector: 'my-heroes',
-                        template: "\n    <h1>{{title}}</h1>\n    <h2>My Heroes</h2>\n    <ul class=\"heroes\">\n        <li *ngFor=\"#hero of heroes\" [class.selected]=\"hero === selectedHero\" (click)=\"onSelect(hero)\">\n            <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n        </li>\n    </ul>\n    ",
+                        template: "\n    <h1>{{title}}</h1>\n    <h2>My Heroes</h2>\n    <ul class=\"heroes\">\n        <li *ngFor=\"#hero of heroes\" [class.selected]=\"hero === selectedHero\" (click)=\"onSelect(hero)\">\n            <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n        </li>\n    </ul>\n    <div *ngIf=\"selectedHero\">\n        <h2>\n            {{selectedHero.name | uppercase}} is my hero\n        </h2>\n        <button (click)=\"gotoDetail()\">View Details</button>\n    </div>\n    ",
                         //hero property
                         //The [hero] property is the 'target' of a property binding. Angular insists that we declare a 'target' property to be an 'input'
                         //property. Because of this binding, the HeroDetailComponent should receive the [hero] from the App Component and display that hero's
