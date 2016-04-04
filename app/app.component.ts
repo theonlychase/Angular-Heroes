@@ -3,6 +3,14 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 import { HeroService } from './hero.service';
 import { HeroesComponent } from './heroes.component';
 
+@RouteConfig([ //Only 3 route definitions as of now
+    {
+        path: '/heroes', //URL
+        name: 'Heroes', //Official name of the route. Must begin with capital letter to avoid confusion with path name
+        component: HeroesComponent //component that the router should create when navigating to this route
+    }
+])
+
 @Component({
     selector: 'my-app',
     template:`
@@ -11,7 +19,7 @@ import { HeroesComponent } from './heroes.component';
     `,
     directives: [
         ROUTER_DIRECTIVES,
-        HeroesComponent
+        // HeroesComponent - removed because we don't want this component showing the heroes.
     ],
     providers: [
         ROUTER_PROVIDERS, 

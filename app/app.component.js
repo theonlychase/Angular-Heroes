@@ -32,12 +32,18 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './heroes
                     this.title = "Tour of Heroes";
                 }
                 AppComponent = __decorate([
+                    router_1.RouteConfig([
+                        {
+                            path: '/heroes',
+                            name: 'Heroes',
+                            component: heroes_component_1.HeroesComponent //component that the router should create when navigating to this route
+                        }
+                    ]),
                     core_1.Component({
                         selector: 'my-app',
                         template: "\n        <h1>{{title}}</h1>\n        <my-heroes></my-heroes>\n    ",
                         directives: [
                             router_1.ROUTER_DIRECTIVES,
-                            heroes_component_1.HeroesComponent
                         ],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
