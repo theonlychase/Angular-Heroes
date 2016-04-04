@@ -24,7 +24,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 DashboardComponent = __decorate([
                     core_1.Component({
                         selector: 'my-dashboard',
-                        template: '<h3>My dashboard</h3>'
+                        templateUrl: 'app/dashboard.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], DashboardComponent);
