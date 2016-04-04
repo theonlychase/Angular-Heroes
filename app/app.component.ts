@@ -2,13 +2,18 @@ import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import { HeroService } from './hero.service';
 import { HeroesComponent } from './heroes.component';
+import { DashboardComponent } from './dashboard.component';
 
 @RouteConfig([ //Only 3 route definitions as of now
     {
         path: '/heroes', //URL
         name: 'Heroes', //Official name of the route. Must begin with capital letter to avoid confusion with path name
         component: HeroesComponent //component that the router should create when navigating to this route
-    }
+    },
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: DashboardComponent,
+        useAsDefault: true //dislays this URL when the browser doesn't match an exsiting route
 ])
 
 @Component({
